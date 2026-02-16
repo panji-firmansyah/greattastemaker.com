@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Great Tastemaker — GTM Engine for B2B</title>
-    <meta name="description" content="From product knowledge to market-ready assets. In 4 days. Great Tastemaker is a GTM engine for B2B companies who need to move fast.">
+    <title>Great Tastemaker — GTM Engine untuk B2B</title>
+    <meta name="description" content="Dari product knowledge jadi aset GTM siap deploy. Dalam 4 hari. Great Tastemaker adalah GTM engine untuk perusahaan B2B yang butuh kecepatan.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* ========== RESET & BASE ========== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg-primary: #09090b;
@@ -34,11 +29,7 @@
             --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
         }
 
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
         body {
             font-family: var(--font-sans);
@@ -48,672 +39,216 @@
             overflow-x: hidden;
         }
 
-        ::selection {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--text-primary);
-        }
+        ::selection { background: rgba(255, 255, 255, 0.15); color: var(--text-primary); }
+        a { color: inherit; text-decoration: none; }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 120px 0; position: relative; }
+        @media (max-width: 768px) { section { padding: 80px 0; } }
 
-        /* ========== LAYOUT ========== */
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        section {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 80px 0;
-            }
-        }
-
-        /* ========== NAV ========== */
+        /* NAV */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 16px 0;
-            background: rgba(9, 9, 11, 0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+            background: rgba(9, 9, 11, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle);
         }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            font-size: 15px;
-            letter-spacing: -0.02em;
-        }
-
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
         .logo-mark {
-            width: 32px;
-            height: 32px;
-            background: var(--text-primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-primary);
-            font-weight: 700;
-            font-size: 13px;
-            font-family: var(--font-mono);
-            letter-spacing: -0.05em;
+            width: 32px; height: 32px; background: var(--text-primary); border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; color: var(--bg-primary);
+            font-weight: 700; font-size: 13px; font-family: var(--font-mono); letter-spacing: -0.05em;
         }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            color: var(--text-secondary);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a { font-size: 14px; color: var(--text-secondary); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
         .nav-cta {
-            font-size: 14px;
-            font-weight: 500;
-            padding: 8px 16px;
+            font-size: 14px; font-weight: 500; padding: 8px 16px;
+            background: var(--text-primary); color: var(--bg-primary); border-radius: 8px; transition: opacity 0.2s;
+        }
+        .nav-cta:hover { opacity: 0.9; }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 13px;
+            font-family: var(--font-mono);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .lang-switch a {
+            padding: 4px 10px;
+            color: var(--text-tertiary);
+            transition: all 0.2s;
+        }
+        .lang-switch a:hover { color: var(--text-primary); }
+        .lang-switch a.active {
             background: var(--text-primary);
             color: var(--bg-primary);
-            border-radius: 8px;
-            transition: opacity 0.2s;
-        }
-
-        .nav-cta:hover {
-            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .lang-switch { display: flex; }
         }
 
-        /* ========== TYPOGRAPHY ========== */
+        /* TYPOGRAPHY */
         .section-tag {
-            font-family: var(--font-mono);
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+            color: var(--text-tertiary); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px;
         }
-
         .headline-xl {
-            font-size: clamp(40px, 6vw, 64px);
-            font-weight: 700;
-            letter-spacing: -0.035em;
-            line-height: 1.05;
+            font-size: clamp(40px, 6vw, 64px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.05;
             background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
+        .headline-lg { font-size: clamp(32px, 4.5vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+        .headline-md { font-size: clamp(20px, 2.5vw, 24px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; }
+        .body-lg { font-size: 18px; line-height: 1.7; color: var(--text-secondary); }
+        .body-md { font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
 
-        .headline-lg {
-            font-size: clamp(32px, 4.5vw, 48px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-        }
-
-        .headline-md {
-            font-size: clamp(20px, 2.5vw, 24px);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-        }
-
-        .body-lg {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-
-        .body-md {
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-
-        /* ========== BUTTONS ========== */
+        /* BUTTONS */
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            letter-spacing: -0.01em;
+            display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+            background: var(--text-primary); color: var(--bg-primary); font-size: 15px; font-weight: 600;
+            border-radius: 10px; border: none; cursor: pointer; transition: all 0.2s; letter-spacing: -0.01em;
         }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
         .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            background: transparent;
-            color: var(--text-primary);
-            font-size: 15px;
-            font-weight: 500;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.2s;
-            letter-spacing: -0.01em;
+            display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+            background: transparent; color: var(--text-primary); font-size: 15px; font-weight: 500;
+            border-radius: 10px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; letter-spacing: -0.01em;
         }
+        .btn-secondary:hover { border-color: var(--text-secondary); background: rgba(255, 255, 255, 0.03); }
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
 
-        .btn-secondary:hover {
-            border-color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.03);
-        }
+        .section-divider { height: 1px; background: var(--border-subtle); max-width: 1080px; margin: 0 auto; }
 
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        /* ========== DIVIDER ========== */
-        .section-divider {
-            height: 1px;
-            background: var(--border-subtle);
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
+        /* HERO */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        .hero-content { max-width: 800px; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            font-family: var(--font-mono);
+            display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+            background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 100px;
+            font-size: 13px; color: var(--text-secondary); margin-bottom: 32px; font-family: var(--font-mono);
         }
-
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .hero .headline-xl {
-            margin-bottom: 24px;
-        }
-
-        .hero .body-lg {
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-
+        .hero-badge .dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .hero .headline-xl { margin-bottom: 24px; }
+        .hero .body-lg { max-width: 600px; margin-bottom: 40px; }
         .hero-metric {
-            display: flex;
-            gap: 48px;
-            margin-top: 64px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border-subtle);
+            display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border-subtle);
         }
+        .hero-metric-item { display: flex; flex-direction: column; gap: 4px; }
+        .hero-metric-value { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; font-family: var(--font-mono); }
+        .hero-metric-label { font-size: 13px; color: var(--text-tertiary); }
+        @media (max-width: 768px) { .hero-metric { gap: 32px; flex-wrap: wrap; } }
 
-        .hero-metric-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
+        /* PROBLEM */
+        .problem-content { max-width: 700px; }
+        .problem-content .headline-lg { margin-bottom: 32px; }
+        .problem-content p { margin-bottom: 20px; }
+        .problem-content p:last-of-type { color: var(--text-primary); font-weight: 500; }
 
-        .hero-metric-value {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            font-family: var(--font-mono);
-        }
-
-        .hero-metric-label {
-            font-size: 13px;
-            color: var(--text-tertiary);
-        }
-
-        @media (max-width: 768px) {
-            .hero-metric {
-                gap: 32px;
-                flex-wrap: wrap;
-            }
-        }
-
-        /* ========== PROBLEM ========== */
-        .problem-content {
-            max-width: 700px;
-        }
-
-        .problem-content .headline-lg {
-            margin-bottom: 32px;
-        }
-
-        .problem-content p {
-            margin-bottom: 20px;
-        }
-
-        .problem-content p:last-of-type {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        /* ========== ENGINE ========== */
-        .engine-header {
-            margin-bottom: 64px;
-        }
-
-        .engine-header .headline-lg {
-            margin-bottom: 16px;
-        }
-
+        /* ENGINE */
+        .engine-header { margin-bottom: 64px; }
+        .engine-header .headline-lg { margin-bottom: 16px; }
         .engine-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border-subtle);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            overflow: hidden;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+            background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden;
         }
+        .engine-card { background: var(--bg-secondary); padding: 40px 32px; display: flex; flex-direction: column; gap: 16px; }
+        .engine-phase { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; }
+        .engine-card .headline-md { margin-bottom: 4px; }
+        .engine-card .body-md { flex-grow: 1; }
+        .engine-number { font-family: var(--font-mono); font-size: 48px; font-weight: 700; color: var(--bg-tertiary); line-height: 1; -webkit-text-stroke: 1px var(--border); }
+        @media (max-width: 768px) { .engine-grid { grid-template-columns: 1fr; } }
 
-        .engine-card {
-            background: var(--bg-secondary);
-            padding: 40px 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .engine-phase {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-tertiary);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .engine-card .headline-md {
-            margin-bottom: 4px;
-        }
-
-        .engine-card .body-md {
-            flex-grow: 1;
-        }
-
-        .engine-number {
-            font-family: var(--font-mono);
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--bg-tertiary);
-            line-height: 1;
-            -webkit-text-stroke: 1px var(--border);
-        }
-
-        @media (max-width: 768px) {
-            .engine-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ========== OUTPUT ========== */
-        .output-header {
-            margin-bottom: 48px;
-        }
-
-        .output-header .headline-lg {
-            margin-bottom: 16px;
-        }
-
-        .output-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 12px;
-        }
-
+        /* OUTPUT */
+        .output-header { margin-bottom: 48px; }
+        .output-header .headline-lg { margin-bottom: 16px; }
+        .output-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
         .output-item {
-            padding: 20px 24px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            font-size: 15px;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.2s;
+            padding: 20px 24px; background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+            border-radius: 12px; font-size: 15px; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 12px; transition: all 0.2s;
         }
+        .output-item:hover { border-color: var(--border); color: var(--text-primary); }
+        .output-icon { width: 8px; height: 8px; background: var(--border); border-radius: 2px; flex-shrink: 0; }
+        .output-item:hover .output-icon { background: var(--text-secondary); }
+        .output-note { margin-top: 32px; font-size: 14px; color: var(--text-tertiary); font-style: italic; }
 
-        .output-item:hover {
-            border-color: var(--border);
-            color: var(--text-primary);
-        }
-
-        .output-icon {
-            width: 8px;
-            height: 8px;
-            background: var(--border);
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-
-        .output-item:hover .output-icon {
-            background: var(--text-secondary);
-        }
-
-        .output-note {
-            margin-top: 32px;
-            font-size: 14px;
-            color: var(--text-tertiary);
-            font-style: italic;
-        }
-
-        /* ========== SHOWCASE ========== */
-        .showcase-header {
-            margin-bottom: 48px;
-        }
-
+        /* SHOWCASE */
+        .showcase-header { margin-bottom: 48px; }
         .showcase-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: var(--border-subtle);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            overflow: hidden;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+            background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden;
         }
+        .showcase-card { background: var(--bg-secondary); padding: 48px 40px; }
+        .showcase-label { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+        .showcase-card .headline-md { margin-bottom: 20px; }
+        .showcase-card .body-md { margin-bottom: 20px; }
+        .showcase-result { padding-top: 20px; border-top: 1px solid var(--border-subtle); font-size: 14px; color: var(--text-secondary); }
+        .showcase-result strong { color: var(--text-primary); font-weight: 600; }
+        @media (max-width: 768px) { .showcase-cards { grid-template-columns: 1fr; } .showcase-card { padding: 32px 24px; } }
 
-        .showcase-card {
-            background: var(--bg-secondary);
-            padding: 48px 40px;
-        }
-
-        .showcase-label {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-tertiary);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .showcase-card .headline-md {
-            margin-bottom: 20px;
-        }
-
-        .showcase-card .body-md {
-            margin-bottom: 20px;
-        }
-
-        .showcase-result {
-            padding-top: 20px;
-            border-top: 1px solid var(--border-subtle);
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .showcase-result strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .showcase-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .showcase-card {
-                padding: 32px 24px;
-            }
-        }
-
-        /* ========== SPRINT ========== */
+        /* SPRINT */
         .sprint-wrapper {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 64px;
-            position: relative;
-            overflow: hidden;
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px;
+            padding: 64px; position: relative; overflow: hidden;
         }
-
         .sprint-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
         }
+        .sprint-content { max-width: 600px; }
+        .sprint-content .headline-lg { margin-bottom: 20px; }
+        .sprint-content .body-lg { margin-bottom: 40px; }
+        .sprint-details { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+        .sprint-detail h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; font-family: var(--font-mono); letter-spacing: 0.02em; }
+        .sprint-detail p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+        @media (max-width: 768px) { .sprint-wrapper { padding: 40px 24px; } .sprint-details { grid-template-columns: 1fr; gap: 24px; } }
 
-        .sprint-content {
-            max-width: 600px;
-        }
+        /* ABOUT */
+        .about-content { max-width: 700px; }
+        .about-content .headline-lg { margin-bottom: 32px; }
+        .about-content p { margin-bottom: 20px; }
+        .about-stats { display: flex; gap: 40px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; }
+        .about-stat { display: flex; flex-direction: column; gap: 4px; }
+        .about-stat-value { font-size: 24px; font-weight: 700; font-family: var(--font-mono); letter-spacing: -0.03em; }
+        .about-stat-label { font-size: 13px; color: var(--text-tertiary); }
 
-        .sprint-content .headline-lg {
-            margin-bottom: 20px;
-        }
+        /* FINAL CTA */
+        .final-cta { text-align: center; padding: 140px 0; }
+        .final-cta .headline-lg { margin-bottom: 16px; }
+        .final-cta .body-lg { max-width: 500px; margin: 0 auto 40px; }
+        .final-cta .btn-group { justify-content: center; }
+        .email-link { display: block; margin-top: 24px; font-size: 14px; color: var(--text-tertiary); transition: color 0.2s; }
+        .email-link:hover { color: var(--text-secondary); }
 
-        .sprint-content .body-lg {
-            margin-bottom: 40px;
-        }
+        /* FOOTER */
+        footer { padding: 32px 0; border-top: 1px solid var(--border-subtle); }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+        .footer-text { font-size: 13px; color: var(--text-tertiary); }
 
-        .sprint-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-bottom: 40px;
-        }
+        /* ANIMATIONS */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        .sprint-detail h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            font-family: var(--font-mono);
-            letter-spacing: 0.02em;
-        }
-
-        .sprint-detail p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        @media (max-width: 768px) {
-            .sprint-wrapper {
-                padding: 40px 24px;
-            }
-
-            .sprint-details {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-        }
-
-        /* ========== ABOUT ========== */
-        .about-content {
-            max-width: 700px;
-        }
-
-        .about-content .headline-lg {
-            margin-bottom: 32px;
-        }
-
-        .about-content p {
-            margin-bottom: 20px;
-        }
-
-        .about-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 40px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border-subtle);
-            flex-wrap: wrap;
-        }
-
-        .about-stat {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .about-stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            font-family: var(--font-mono);
-            letter-spacing: -0.03em;
-        }
-
-        .about-stat-label {
-            font-size: 13px;
-            color: var(--text-tertiary);
-        }
-
-        /* ========== FINAL CTA ========== */
-        .final-cta {
-            text-align: center;
-            padding: 140px 0;
-        }
-
-        .final-cta .headline-lg {
-            margin-bottom: 16px;
-        }
-
-        .final-cta .body-lg {
-            max-width: 500px;
-            margin: 0 auto 40px;
-        }
-
-        .final-cta .btn-group {
-            justify-content: center;
-        }
-
-        .email-link {
-            display: block;
-            margin-top: 24px;
-            font-size: 14px;
-            color: var(--text-tertiary);
-            transition: color 0.2s;
-        }
-
-        .email-link:hover {
-            color: var(--text-secondary);
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            padding: 32px 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-text {
-            font-size: 13px;
-            color: var(--text-tertiary);
-        }
-
-        /* ========== ANIMATIONS ========== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ========== GRAIN OVERLAY ========== */
+        /* GRAIN */
         body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.015;
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.015;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px 256px;
+            background-repeat: repeat; background-size: 256px 256px;
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== NAV ========== -->
+    <!-- NAV -->
     <nav>
         <div class="container nav-inner">
             <a href="#" class="logo">
@@ -724,41 +259,45 @@
                 <a href="#engine">Engine</a>
                 <a href="#showcase">Showcase</a>
                 <a href="#sprint">Sprint</a>
-                <a href="#about">About</a>
-                <a href="#book" class="nav-cta">Book a Sprint</a>
+                <a href="#about">Tentang</a>
+                <a href="#book" class="nav-cta">Mulai Sprint</a>
+            </div>
+            <div class="lang-switch">
+                <a href="/en/">EN</a>
+                <a href="/" class="active">ID</a>
             </div>
         </div>
     </nav>
 
-    <!-- ========== HERO ========== -->
+    <!-- HERO -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content fade-in">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Accepting new clients
+                    Menerima klien baru
                 </div>
-                <h1 class="headline-xl">From product knowledge<br>to market-ready assets.<br>In 4 days.</h1>
-                <p class="body-lg">Great Tastemaker is a GTM engine for B2B companies. We extract what your product team knows, process it into high-converting assets, and deploy — faster than your internal team ever could.</p>
+                <h1 class="headline-xl">Product knowledge Anda,<br>siap di pasar.<br>Dalam 4 hari.</h1>
+                <p class="body-lg">Great Tastemaker adalah GTM engine untuk perusahaan B2B. Kami ambil pengetahuan terdalam dari tim produk Anda, olah jadi aset yang menjual, dan deploy — lebih cepat dari tim internal mana pun.</p>
                 <div class="btn-group">
                     <a href="#book" class="btn-primary">
-                        Book a GTM Sprint
+                        Mulai GTM Sprint
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                    <a href="#engine" class="btn-secondary">See How It Works</a>
+                    <a href="#engine" class="btn-secondary">Lihat Cara Kerjanya</a>
                 </div>
                 <div class="hero-metric">
                     <div class="hero-metric-item">
-                        <span class="hero-metric-value">4 days</span>
-                        <span class="hero-metric-label">Extraction to deployment</span>
+                        <span class="hero-metric-value">4 hari</span>
+                        <span class="hero-metric-label">Dari ekstraksi ke deployment</span>
                     </div>
                     <div class="hero-metric-item">
                         <span class="hero-metric-value">50+</span>
-                        <span class="hero-metric-label">Assets per cycle</span>
+                        <span class="hero-metric-label">Aset per siklus</span>
                     </div>
                     <div class="hero-metric-item">
                         <span class="hero-metric-value">1</span>
-                        <span class="hero-metric-label">Extraction session needed</span>
+                        <span class="hero-metric-label">Sesi ekstraksi dibutuhkan</span>
                     </div>
                 </div>
             </div>
@@ -767,48 +306,48 @@
 
     <div class="section-divider"></div>
 
-    <!-- ========== PROBLEM ========== -->
+    <!-- PROBLEM -->
     <section id="problem">
         <div class="container">
             <div class="problem-content fade-in">
-                <p class="section-tag">The Gap</p>
-                <h2 class="headline-lg">Your product team knows everything. Your market knows nothing.</h2>
-                <p class="body-md">Your product owners live in the details — every feature, every use case, every edge case solved. But that knowledge stays locked in internal docs, meetings, and Slack threads.</p>
-                <p class="body-md">Meanwhile, your marketing team is guessing. They're producing content based on surface-level briefs. Running campaigns without depth. Launching assets that sound like every other competitor.</p>
-                <p class="body-md">The result? Slow time-to-market. Generic messaging. Leads that don't convert.</p>
-                <p class="body-md">The gap between product knowledge and market execution is where revenue gets lost.</p>
+                <p class="section-tag">Masalahnya</p>
+                <h2 class="headline-lg">Yang paling paham produk bukan yang membuat kontennya.</h2>
+                <p class="body-md">Product owner Anda punya semua jawabannya — kenapa fitur ini ada, apa masalah yang dipecahkan, apa yang membedakan dari kompetitor. Tapi pengetahuan itu tersimpan di kepala mereka, di dokumen internal, di recording meeting yang tidak pernah ditonton.</p>
+                <p class="body-md">Di sisi lain, tim marketing bekerja dari brief yang setengah-setengah. Bikin konten dari permukaan. Jalankan campaign yang bunyinya sama seperti semua orang.</p>
+                <p class="body-md">Hasilnya? Lambat ke pasar. Pesan yang tidak tajam. Leads yang datang tapi tidak closing.</p>
+                <p class="body-md">Gap antara yang paham produk dan yang mengeksekusi ke pasar — di situ revenue Anda bocor.</p>
             </div>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- ========== ENGINE ========== -->
+    <!-- ENGINE -->
     <section id="engine">
         <div class="container">
             <div class="engine-header fade-in">
-                <p class="section-tag">The Engine</p>
-                <h2 class="headline-lg">Three phases. Four days.<br>Market-ready.</h2>
-                <p class="body-lg" style="margin-top: 16px; max-width: 600px;">A systematic approach to turning product knowledge into deployment-ready GTM assets.</p>
+                <p class="section-tag">Mesinnya</p>
+                <h2 class="headline-lg">Tiga fase. Empat hari.<br>Siap jalan.</h2>
+                <p class="body-lg" style="margin-top: 16px; max-width: 600px;">Sistem yang kami bangun untuk mengubah apa yang tim produk Anda tahu menjadi aset GTM yang langsung bisa dijalankan.</p>
             </div>
             <div class="engine-grid fade-in">
                 <div class="engine-card">
                     <span class="engine-number">01</span>
-                    <p class="engine-phase">Phase 1</p>
+                    <p class="engine-phase">Fase 1</p>
                     <h3 class="headline-md">Extract</h3>
-                    <p class="body-md">We go straight to the source. Deep extraction sessions with your product owners, founders, and subject matter experts. We pull out insights, data points, positioning angles, and competitive edges that your marketing team has never had access to.</p>
+                    <p class="body-md">Kami bicara langsung dengan orang yang paling paham. Sesi ekstraksi mendalam bersama product owner, founder, atau subject matter expert Anda. Kami gali insight, data, angle positioning, dan keunggulan kompetitif yang selama ini tidak sampai ke tim marketing.</p>
                 </div>
                 <div class="engine-card">
                     <span class="engine-number">02</span>
-                    <p class="engine-phase">Phase 2</p>
+                    <p class="engine-phase">Fase 2</p>
                     <h3 class="headline-md">Process</h3>
-                    <p class="body-md">Raw knowledge becomes structured GTM strategy. We analyze, reframe, and break down your product intelligence into messaging frameworks, content angles, and campaign narratives — built to convert, not just to inform.</p>
+                    <p class="body-md">Informasi mentah kami olah jadi strategi GTM yang terstruktur. Kami analisis, reframe, dan pecah menjadi messaging framework, angle konten, dan narasi campaign — dibangun untuk mengonversi, bukan sekadar tampil di feed.</p>
                 </div>
                 <div class="engine-card">
                     <span class="engine-number">03</span>
-                    <p class="engine-phase">Phase 3</p>
+                    <p class="engine-phase">Fase 3</p>
                     <h3 class="headline-md">Deploy</h3>
-                    <p class="body-md">From frameworks to finished assets. Articles, carousels, ad creatives, landing pages, video scripts, lead magnets — all produced, reviewed, and deployment-ready. One extraction session. Dozens of assets. Four days.</p>
+                    <p class="body-md">Dari framework langsung jadi aset final. Artikel, carousel, ad creative, landing page, skrip video, lead magnet — semua diproduksi, direview, dan siap deploy. Satu sesi ekstraksi. Puluhan aset. Empat hari.</p>
                 </div>
             </div>
         </div>
@@ -816,78 +355,78 @@
 
     <div class="section-divider"></div>
 
-    <!-- ========== OUTPUT ========== -->
+    <!-- OUTPUT -->
     <section id="output">
         <div class="container">
             <div class="output-header fade-in">
-                <p class="section-tag">One Cycle Produces</p>
-                <h2 class="headline-lg">One extraction. Dozens of assets.<br>Every channel covered.</h2>
-                <p class="body-lg" style="margin-top: 16px; max-width: 600px;">A single GTM cycle turns your product knowledge into a full deployment package.</p>
+                <p class="section-tag">Hasil Satu Siklus</p>
+                <h2 class="headline-lg">Satu sesi ekstraksi.<br>Puluhan aset. Semua channel.</h2>
+                <p class="body-lg" style="margin-top: 16px; max-width: 600px;">Dari satu siklus GTM, kami hasilkan paket lengkap yang siap Anda jalankan.</p>
             </div>
             <div class="output-grid fade-in">
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Long-form articles & SEO content
+                    Artikel panjang & konten SEO
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    LinkedIn carousels & social posts
+                    Carousel LinkedIn & posting sosial media
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Ad creatives for Meta & LinkedIn
+                    Ad creative untuk Meta & LinkedIn
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Landing pages & lead magnets
+                    Landing page & lead magnet
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Video scripts & talking head briefs
+                    Skrip video & brief talking head
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Email sequences & sales enablement
+                    Email sequence & materi sales
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Employee-generated content frameworks
+                    Framework employee-generated content
                 </div>
                 <div class="output-item">
                     <span class="output-icon"></span>
-                    Mini workshops & presentation decks
+                    Mini workshop & dek presentasi
                 </div>
             </div>
-            <p class="output-note fade-in">Every asset is built from the same source of truth — your product team's actual knowledge. Not guesswork. Not generic templates.</p>
+            <p class="output-note fade-in">Semua aset dibangun dari sumber yang sama — pengetahuan langsung dari tim produk Anda. Bukan asumsi. Bukan template.</p>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- ========== SHOWCASE ========== -->
+    <!-- SHOWCASE -->
     <section id="showcase">
         <div class="container">
             <div class="showcase-header fade-in">
-                <p class="section-tag">In Action</p>
-                <h2 class="headline-lg">See what the engine produces.</h2>
+                <p class="section-tag">Bukti Kerja</p>
+                <h2 class="headline-lg">Lihat langsung hasilnya.</h2>
             </div>
             <div class="showcase-cards fade-in">
                 <div class="showcase-card">
-                    <p class="showcase-label">Client Deployment</p>
-                    <h3 class="headline-md">B2B Consulting Firm — Complex, High-Ticket Solutions</h3>
-                    <p class="body-md">A multi-entity business consulting group needed to unify their GTM across four business units. Product knowledge was siloed. Marketing was operating on assumptions.</p>
-                    <p class="body-md">We built an extraction system directly connected to their product owners. Bi-weekly knowledge updates. Structured opinion databases. From there, we deployed a continuous stream of GTM assets — articles, carousels, ad campaigns, mini workshops, and landing pages — across all four units.</p>
+                    <p class="showcase-label">Klien Aktif</p>
+                    <h3 class="headline-md">Perusahaan Konsultan B2B — Solusi Kompleks, Transaksi Besar</h3>
+                    <p class="body-md">Grup konsultan bisnis dengan empat unit bisnis. Masalahnya klasik: setiap unit punya product owner yang sangat paham, tapi tim marketing-nya jalan sendiri tanpa kedalaman itu.</p>
+                    <p class="body-md">Kami bangun sistem ekstraksi yang langsung terhubung ke product owner di setiap unit. Update knowledge dua mingguan. Database opini dan data yang terstruktur. Dari situ, kami deploy aset GTM secara terus-menerus — artikel, carousel, iklan, mini workshop, dan landing page — untuk keempat unit sekaligus.</p>
                     <div class="showcase-result">
-                        <strong>Result:</strong> A fully operational GTM engine that turns internal expertise into market-facing content at speed, with a documentation system that compounds over time.
+                        <strong>Hasilnya:</strong> GTM engine yang jalan penuh. Keahlian internal langsung jadi konten untuk pasar. Sistem dokumentasi yang makin kaya setiap bulannya.
                     </div>
                 </div>
                 <div class="showcase-card">
                     <p class="showcase-label">Concept Showcase</p>
-                    <h3 class="headline-md">What a GTM Sprint looks like for a SaaS company</h3>
-                    <p class="body-md">Imagine a B2B SaaS company launching a new feature. Engineering built it. The PM documented it. But marketing has a slide deck and a Notion page.</p>
-                    <p class="body-md">Here's what a 4-day GTM Sprint produces: extraction session with your PM → messaging framework → 5 LinkedIn carousels, 3 long-form articles, 2 ad creative sets, 1 landing page, 1 lead magnet, 4 email sequences — all aligned, all on-brand, all deployment-ready.</p>
+                    <h3 class="headline-md">Kalau GTM Sprint dijalankan untuk perusahaan SaaS</h3>
+                    <p class="body-md">Misalnya Anda perusahaan SaaS B2B yang baru rilis fitur baru. Engineering sudah bangun. PM sudah dokumentasikan. Tapi marketing? Cuma punya slide deck dan satu halaman Notion.</p>
+                    <p class="body-md">Dalam 4 hari, GTM Sprint menghasilkan: sesi ekstraksi dengan PM → messaging framework → 5 carousel LinkedIn, 3 artikel, 2 set ad creative, 1 landing page, 1 lead magnet, 4 email sequence — semuanya konsisten, on-brand, dan tinggal dijalankan.</p>
                     <div class="showcase-result">
-                        <strong>This is a concept showcase</strong> — a demonstration of what the GTM Engine delivers when pointed at your product.
+                        <strong>Ini concept showcase</strong> — gambaran nyata dari apa yang GTM Engine hasilkan kalau diarahkan ke produk Anda.
                     </div>
                 </div>
             </div>
@@ -896,26 +435,26 @@
 
     <div class="section-divider"></div>
 
-    <!-- ========== SPRINT ========== -->
+    <!-- SPRINT -->
     <section id="sprint">
         <div class="container">
             <div class="sprint-wrapper fade-in">
                 <div class="sprint-content">
-                    <p class="section-tag">Start Here</p>
-                    <h2 class="headline-lg">Don't commit.<br>Just see it work.</h2>
-                    <p class="body-lg">The GTM Sprint is a single cycle of the GTM Engine — scoped, focused, and designed to prove the system before you commit to a retainer.</p>
+                    <p class="section-tag">Mulai dari Sini</p>
+                    <h2 class="headline-lg">Belum yakin?<br>Coba dulu, buktikan sendiri.</h2>
+                    <p class="body-lg">GTM Sprint adalah satu siklus dari GTM Engine — scope-nya jelas, fokusnya tajam, dan tujuannya satu: Anda lihat sendiri hasilnya sebelum commit ke retainer.</p>
                     <div class="sprint-details">
                         <div class="sprint-detail">
-                            <h4>What you get</h4>
-                            <p>One extraction session with your product team. One full batch of deployment-ready GTM assets. One round of revision. Four days from kickoff to delivery.</p>
+                            <h4>Yang Anda dapat</h4>
+                            <p>Satu sesi ekstraksi dengan tim produk Anda. Satu batch penuh aset GTM siap deploy. Satu putaran revisi. Empat hari dari kickoff sampai selesai.</p>
                         </div>
                         <div class="sprint-detail">
-                            <h4>What we need</h4>
-                            <p>Access to one product owner or subject matter expert for a 60–90 minute extraction session. That's it. We handle the rest.</p>
+                            <h4>Yang kami butuhkan</h4>
+                            <p>Akses ke satu product owner atau orang yang paling paham produk Anda, untuk sesi 60–90 menit. Itu saja. Sisanya kami yang kerjakan.</p>
                         </div>
                     </div>
                     <a href="#book" class="btn-primary">
-                        Book Your GTM Sprint
+                        Mulai GTM Sprint
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
@@ -925,27 +464,27 @@
 
     <div class="section-divider"></div>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- ABOUT -->
     <section id="about">
         <div class="container">
             <div class="about-content fade-in">
-                <p class="section-tag">Who's Behind the Engine</p>
-                <h2 class="headline-lg">Built by a marketer who's been on both sides.</h2>
-                <p class="body-md">Great Tastemaker is built and run by someone who's spent years in the trenches — both as a content creator and a performance marketer.</p>
-                <p class="body-md">From campaign strategy to content production to media buying — every part of the GTM stack, hands-on. The insight behind Great Tastemaker came from a simple observation: the best marketing doesn't come from marketers guessing. It comes from marketers who have direct access to the people who built the product.</p>
-                <p class="body-md">That's what this engine is built on. Deep product knowledge, processed with taste, deployed at speed.</p>
+                <p class="section-tag">Siapa di Baliknya</p>
+                <h2 class="headline-lg">Dibangun oleh marketer yang sudah ada di kedua sisi.</h2>
+                <p class="body-md">Great Tastemaker dibangun dan dijalankan oleh seseorang yang sudah bertahun-tahun turun langsung — sebagai content creator sekaligus performance marketer.</p>
+                <p class="body-md">Dari strategi campaign, produksi konten, sampai media buying — setiap bagian GTM stack, dikerjakan sendiri. Dan insight di balik Great Tastemaker datang dari satu hal sederhana: marketing yang paling efektif bukan dari marketer yang nebak-nebak. Tapi dari marketer yang punya akses langsung ke orang yang membangun produknya.</p>
+                <p class="body-md">Itulah fondasi engine ini. Pengetahuan produk yang mendalam, diolah dengan taste, dan di-deploy dengan kecepatan.</p>
                 <div class="about-stats">
                     <div class="about-stat">
-                        <span class="about-stat-value">3+ yrs</span>
+                        <span class="about-stat-value">3+ thn</span>
                         <span class="about-stat-label">Performance marketing</span>
                     </div>
                     <div class="about-stat">
                         <span class="about-stat-value">100K+</span>
-                        <span class="about-stat-label">Organic followers built</span>
+                        <span class="about-stat-label">Followers organik</span>
                     </div>
                     <div class="about-stat">
-                        <span class="about-stat-value">Cross-industry</span>
-                        <span class="about-stat-label">Retail, services, consulting, B2B</span>
+                        <span class="about-stat-value">Lintas industri</span>
+                        <span class="about-stat-label">Retail, jasa, konsultan, B2B</span>
                     </div>
                 </div>
             </div>
@@ -954,54 +493,41 @@
 
     <div class="section-divider"></div>
 
-    <!-- ========== FINAL CTA ========== -->
+    <!-- FINAL CTA -->
     <section class="final-cta" id="book">
         <div class="container">
             <div class="fade-in">
-                <h2 class="headline-lg">Ready to go to market faster?</h2>
-                <p class="body-lg">Book a GTM Sprint and see what 4 days of focused execution looks like. No long-term commitment. Just results.</p>
+                <h2 class="headline-lg">Siap ke pasar lebih cepat?</h2>
+                <p class="body-lg">Mulai dengan GTM Sprint. Lihat sendiri apa yang bisa dihasilkan dalam 4 hari. Tanpa komitmen panjang. Langsung hasil.</p>
                 <div class="btn-group">
                     <a href="#" class="btn-primary">
-                        Book a GTM Sprint
+                        Mulai GTM Sprint
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
-                <a href="mailto:hello@greattastemaker.com" class="email-link">Or reach out at hello@greattastemaker.com</a>
+                <a href="mailto:hello@greattastemaker.com" class="email-link">Atau hubungi langsung di hello@greattastemaker.com</a>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-inner">
-            <p class="footer-text">© 2025 Great Tastemaker. All rights reserved.</p>
-            <p class="footer-text">GTM Engine for B2B.</p>
+            <p class="footer-text">© 2025 Great Tastemaker. Hak cipta dilindungi.</p>
+            <p class="footer-text">GTM Engine untuk B2B.</p>
         </div>
     </footer>
 
-    <!-- ========== SCROLL ANIMATION ========== -->
     <script>
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
