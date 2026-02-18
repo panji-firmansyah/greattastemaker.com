@@ -2,45 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Backgrounds */
-  --bg-primary: #09090b;
-  --bg-secondary: #18181b;
-  --bg-tertiary: #27272a;
-
-  /* Text */
-  --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
-  --text-tertiary: #71717a;
-
-  /* Accent — Cyan Brand Color */
-  --accent-primary: #22d3ee;
-  --accent-secondary: #06b6d4;
-  --accent-muted: #164e63;
-
-  /* Functional */
-  --border-default: #27272a;
-  --border-subtle: #3f3f46;
-
-  /* Gradients */
-  --gradient-hero: linear-gradient(to bottom, #09090b 0%, #0c1222 50%, #09090b 100%);
-  --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #8b5cf6 100%);
-  --gradient-text: linear-gradient(90deg, #22d3ee 0%, #a78bfa 100%);
-
-  /* Glow effects */
-  --glow-cyan: 0 0 60px rgba(34, 211, 238, 0.15);
-  --glow-violet: 0 0 60px rgba(139, 92, 246, 0.1);
-}
-
 @layer base {
+  :root {
+    /* ── Base Backgrounds ── */
+    --bg-primary: #FAFAF7;
+    --bg-secondary: #F2F0EB;
+    --bg-dark: #1A1A18;
+    --bg-dark-secondary: #2A2A27;
+
+    /* ── Text ── */
+    --text-primary: #1A1A18;
+    --text-secondary: #6B6B63;
+    --text-tertiary: #9B9B93;
+    --text-on-dark: #FAFAF7;
+    --text-on-dark-secondary: #B0AFA8;
+
+    /* ── Accent ── */
+    --accent: #C8A24E;
+    --accent-hover: #B8923E;
+    --accent-subtle: rgba(200, 162, 78, 0.1);
+    --accent-glow: rgba(200, 162, 78, 0.2);
+
+    /* ── Borders ── */
+    --border-light: #E5E3DC;
+    --border-dark: #3A3A37;
+
+    /* ── Functional ── */
+    --success: #4A7C59;
+    --error: #B85450;
+
+    /* ── Spacing ── */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+    --space-3xl: 8rem;
+    --space-hero: 10rem;
+
+    /* ── Typography Scale ── */
+    --text-hero: clamp(2.5rem, 5vw, 4rem);
+    --text-h1: clamp(2rem, 4vw, 3rem);
+    --text-h2: clamp(1.5rem, 3vw, 2.25rem);
+    --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+    --text-body-lg: 1.125rem;
+    --text-body: 1rem;
+    --text-body-sm: 0.875rem;
+    --text-caption: 0.75rem;
+  }
+
   * {
-    border-color: var(--border-default);
+    border-color: var(--border-light);
   }
 
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -49,65 +67,30 @@
     scroll-behavior: smooth;
   }
 
-  /* Selection highlight */
   ::selection {
-    background-color: rgba(34, 211, 238, 0.2);
+    background-color: var(--accent-subtle);
     color: var(--text-primary);
   }
 }
 
-@layer components {
-  /* Glass card effect */
-  .glass-card {
-    background: rgba(24, 24, 27, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(63, 63, 70, 0.5);
-    border-radius: 0.75rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  }
-
-  .glass-card:hover {
-    border-color: rgba(34, 211, 238, 0.3);
-    box-shadow: 0 0 40px rgba(34, 211, 238, 0.1);
-    transform: translateY(-2px);
-  }
-
-  /* Gradient text */
-  .text-gradient {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Gradient divider */
-  .divider-gradient {
-    height: 1px;
-    background: linear-gradient(to right, transparent, #3f3f46, transparent);
-  }
-
-  /* Grid background pattern */
-  .grid-pattern {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-
-  /* Section number styling (01, 02, 03) */
-  .section-number {
-    font-family: var(--font-geist-mono), ui-monospace, monospace;
-    color: rgba(34, 211, 238, 0.8);
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-  }
-}
-
 @layer utilities {
-  /* Hide scrollbar utility */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+/* Respect prefers-reduced-motion for CSS transitions/animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

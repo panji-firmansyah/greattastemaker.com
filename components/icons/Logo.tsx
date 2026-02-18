@@ -2,18 +2,19 @@ import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;
+  onDark?: boolean;
 }
 
-export function Logo({ className }: LogoProps) {
+export function Logo({ className, onDark = false }: LogoProps) {
   return (
     <span
       className={cn(
-        "text-xl font-bold tracking-tight text-zinc-50",
+        "font-sans font-medium tracking-tight",
+        onDark ? "text-[var(--text-on-dark)]" : "text-text-primary",
         className
       )}
     >
-      G
-      <span className="text-cyan-400">T</span>
+      GreatTastemaker
     </span>
   );
 }

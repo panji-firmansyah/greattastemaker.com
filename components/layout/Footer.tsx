@@ -4,26 +4,25 @@ import { FOOTER_NAV, SITE_CONFIG } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800/50">
-      <div className="mx-auto max-w-content px-6 py-16 md:px-8">
+    <footer className="bg-bg-dark">
+      <div className="mx-auto max-w-content-full px-5 py-16 md:px-10">
         <div className="grid gap-12 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Logo className="text-2xl" />
-            <p className="mt-3 text-sm text-zinc-500">
-              GTM Engine untuk B2B Indonesia
-            </p>
+            <Logo className="text-lg" onDark />
           </div>
 
-          {/* Navigasi */}
+          {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-300">Navigasi</h3>
+            <h3 className="font-sans text-sm font-semibold text-[var(--text-on-dark)]">
+              Navigation
+            </h3>
             <ul className="mt-4 space-y-3">
-              {FOOTER_NAV.navigasi.map((item) => (
+              {FOOTER_NAV.navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-zinc-500 transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 rounded-sm"
+                    className="font-sans text-sm text-[var(--text-on-dark-secondary)] transition-colors hover:text-[var(--text-on-dark)]"
                   >
                     {item.label}
                   </Link>
@@ -32,15 +31,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Layanan */}
+          {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-300">Layanan</h3>
+            <h3 className="font-sans text-sm font-semibold text-[var(--text-on-dark)]">
+              Services
+            </h3>
             <ul className="mt-4 space-y-3">
-              {FOOTER_NAV.layanan.map((item) => (
+              {FOOTER_NAV.services.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-zinc-500 transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 rounded-sm"
+                    className="font-sans text-sm text-[var(--text-on-dark-secondary)] transition-colors hover:text-[var(--text-on-dark)]"
                   >
                     {item.label}
                   </Link>
@@ -49,37 +50,41 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Kontak */}
+          {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-300">Kontak</h3>
+            <h3 className="font-sans text-sm font-semibold text-[var(--text-on-dark)]">
+              Contact
+            </h3>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="text-sm text-zinc-500 transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 rounded-sm"
+                  className="font-sans text-sm text-[var(--text-on-dark-secondary)] transition-colors hover:text-[var(--text-on-dark)]"
                 >
                   {SITE_CONFIG.email}
                 </a>
               </li>
               <li>
                 <a
-                  href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
+                  href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=Hi%20GreatTastemaker!%20I%27d%20like%20to%20learn%20more.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-zinc-500 transition-colors hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 rounded-sm"
+                  className="font-sans text-sm text-[var(--text-on-dark-secondary)] transition-colors hover:text-[var(--text-on-dark)]"
                 >
-                  WhatsApp
+                  WhatsApp →
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Divider + Copyright */}
-        <div className="divider-gradient mt-12" />
-        <p className="mt-8 text-center text-sm text-zinc-600">
-          &copy; {new Date().getFullYear()} Great Tastemaker. Hak cipta dilindungi.
-        </p>
+        {/* Copyright */}
+        <div className="mt-12 border-t border-[var(--border-dark)] pt-8">
+          <p className="text-center font-sans text-sm text-[var(--text-on-dark-secondary)]">
+            &copy; {new Date().getFullYear()} GreatTastemaker. All rights
+            reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

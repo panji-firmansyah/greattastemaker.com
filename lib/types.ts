@@ -8,54 +8,74 @@ export interface CTAButton {
   href: string;
 }
 
-export interface Stat {
-  value: number;
-  suffix: string;
-  label: string;
-}
-
-export interface EnginePhase {
-  number: string;
+export interface PainCard {
   title: string;
   description: string;
 }
 
-export interface OutputItem {
-  icon: string;
+export interface ProcessStep {
+  name: string;
   label: string;
+  description: string;
 }
 
-export interface CaseStudy {
-  badge: string;
+export interface AssetCard {
   title: string;
   description: string;
-  isActive: boolean;
 }
 
 export interface ServiceTier {
+  label: string;
   name: string;
+  subtitle: string;
   price: string;
-  duration: string;
-  features: string[];
-  cta: CTAButton;
+  timeline: string;
+  valueLine: string;
   highlighted?: boolean;
-  badge?: string;
+  anchorId: string;
 }
 
 export interface AddOn {
   name: string;
   price: string;
-  scope: string;
-  timeline: string;
-  prerequisite?: string;
+  forWhom: string;
+  what: string;
+  why: string;
 }
 
-export interface ContactFormData {
+export interface SprintDay {
+  day: string;
+  description: string;
+}
+
+export interface EngineOutput {
+  label: string;
+  value: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  company: string;
+  role: string;
+}
+
+export interface ClientLogo {
+  name: string;
+  src: string;
+  alt: string;
+}
+
+export interface SocialProof {
+  logos: ClientLogo[];
+  testimonials: Testimonial[];
+  sectionVisible: boolean;
+}
+
+export interface StartFormData {
   name: string;
   company: string;
   email: string;
   whatsapp: string;
-  website?: string;
-  service: string;
-  message?: string;
+  challenge: string;
 }
