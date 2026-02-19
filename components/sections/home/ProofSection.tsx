@@ -31,7 +31,7 @@ export function ProofSection({ variant = "hypothetical" }: ProofSectionProps) {
   }
 
   return (
-    <SectionWrapper bg="primary" padding="content" className="relative">
+    <SectionWrapper bg="primary" padding="content" className="relative overflow-visible">
       <PaperGrain />
       <div className="relative z-10 text-center">
         <SectionLabel>{proof.sectionLabel}</SectionLabel>
@@ -42,29 +42,33 @@ export function ProofSection({ variant = "hypothetical" }: ProofSectionProps) {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <p className="mt-6 font-sans text-[var(--text-body)] leading-[1.7] text-text-secondary max-w-content-text mx-auto">
+          <p className="mt-8 mb-16 font-sans text-[var(--text-body-lg)] leading-[1.6] text-text-secondary max-w-content-text mx-auto">
             {proof.scenarioFraming}
           </p>
         </ScrollReveal>
 
         {/* Asset cards */}
-        <StaggerContainer className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-content-cards mx-auto">
-          {proof.assets.map((asset) => (
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-content-cards mx-auto text-left">
+          {proof.assets.map((asset, i) => (
             <motion.div
               key={asset.title}
               variants={staggerItemVariants}
-              className="group rounded-lg border border-border-light bg-bg-primary p-6 text-left transition-colors hover:border-[var(--accent)]"
+              className={`
+                tangible-card group relative bg-white p-6 rounded-xl border border-[var(--border-light)]
+                hover:border-[var(--accent)] transition-all duration-300
+                ${i % 3 === 1 ? 'lg:translate-y-4' : ''} 
+                ${i % 3 === 2 ? 'lg:translate-y-8' : ''}
+              `}
             >
-              <div className="flex items-start gap-3">
-                <FileText
-                  className="h-5 w-5 text-text-tertiary shrink-0 mt-0.5"
-                  strokeWidth={1.5}
-                />
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-[var(--bg-secondary)] text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-white transition-colors duration-300">
+                  <FileText className="h-5 w-5" strokeWidth={1.5} />
+                </div>
                 <div>
-                  <h3 className="font-sans font-semibold text-[var(--text-body)] text-text-primary">
+                  <h3 className="font-serif font-bold text-lg text-text-primary mb-2 group-hover:text-[var(--accent-text)] transition-colors">
                     {asset.title}
                   </h3>
-                  <p className="mt-2 font-sans text-[var(--text-body-sm)] leading-[1.7] text-text-secondary">
+                  <p className="font-sans text-sm leading-[1.6] text-text-secondary">
                     {asset.description}
                   </p>
                 </div>
@@ -74,7 +78,7 @@ export function ProofSection({ variant = "hypothetical" }: ProofSectionProps) {
         </StaggerContainer>
 
         <ScrollReveal delay={0.3}>
-          <p className="mt-12 font-sans italic text-[var(--text-body-lg)] leading-[1.7] text-text-secondary">
+          <p className="mt-20 font-serif italic text-2xl text-[var(--text-secondary)]">
             {proof.closingLine}
           </p>
         </ScrollReveal>

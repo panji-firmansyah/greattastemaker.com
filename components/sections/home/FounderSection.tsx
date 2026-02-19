@@ -11,30 +11,46 @@ export function FounderSection() {
   const { founder } = homeContent;
 
   return (
-    <SectionWrapper bg="dark" padding="content">
-      <div className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16 items-start">
-        {/* Photo placeholder */}
-        <ScrollReveal>
-          <div className="aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 rounded-lg bg-bg-dark-secondary border border-[var(--border-dark)] flex items-center justify-center lg:sticky lg:top-24">
-            <span className="font-serif font-semibold text-5xl text-[var(--text-on-dark-secondary)] opacity-40">
-              PF
-            </span>
-          </div>
-        </ScrollReveal>
+    <SectionWrapper bg="dark" padding="content" className="relative overflow-hidden">
+      {/* Abstract dark blob background for depth */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-muted)] opacity-[0.05] blur-[100px] rounded-full pointer-events-none" />
 
-        {/* Text */}
-        <div>
+      <div className="relative z-10 grid gap-16 lg:grid-cols-12 items-center">
+        {/* Photo placeholder / Editorial Graphic */}
+        <div className="lg:col-span-5 lg:order-last">
+          <ScrollReveal>
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-secondary)]">
+              {/* Placeholder for real photo. For now, a stylish typographic composition. */}
+              <div className="absolute inset-0 flex items-center justify-center bg-[var(--bg-tertiary)]">
+                <span className="font-serif italic text-9xl text-[var(--text-on-dark)] opacity-10">PF</span>
+              </div>
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-dark)] to-transparent opacity-60" />
+
+              <div className="absolute bottom-8 left-8 right-8">
+                <p className="font-sans text-xs tracking-widest uppercase text-[var(--accent)] mb-2">The Founder</p>
+                <p className="font-serif text-2xl text-white italic">&quot;Marketing paling efektif datang dari mereka yang membangun produknya.&quot;</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Text Content */}
+        <div className="lg:col-span-7">
           <SectionLabel onDark>{founder.sectionLabel}</SectionLabel>
           <ScrollReveal>
-            <SectionHeading as="h2" size="h2" onDark>
+            <SectionHeading as="h2" size="h2" onDark className="mb-10">
               {founder.headline}
             </SectionHeading>
           </ScrollReveal>
 
-          <div className="mt-8 space-y-6">
+          <div className="space-y-8">
             {founder.paragraphs.map((paragraph, i) => (
               <ScrollReveal key={i} delay={0.1 * (i + 1)}>
-                <p className="font-sans text-[var(--text-body)] leading-[1.7] text-[var(--text-on-dark-secondary)]">
+                <p className={`
+                    font-sans text-[var(--text-body-lg)] leading-[1.8] text-[var(--text-on-dark-secondary)]
+                    ${i === 0 ? "first-letter:float-left first-letter:text-5xl first-letter:pr-3 first-letter:font-serif first-letter:text-[var(--accent)]" : ""}
+                `}>
                   {paragraph}
                 </p>
               </ScrollReveal>
@@ -42,12 +58,15 @@ export function FounderSection() {
           </div>
 
           <ScrollReveal delay={0.4}>
-            <Link
-              href={founder.link.href}
-              className="mt-8 inline-block font-sans font-medium text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)]"
-            >
-              {founder.link.label}
-            </Link>
+            <div className="mt-12 flex items-center gap-4">
+              <div className="h-px w-12 bg-[var(--accent)]" />
+              <Link
+                href={founder.link.href}
+                className="font-serif italic text-xl text-[var(--text-on-dark)] transition-colors hover:text-[var(--accent)]"
+              >
+                {founder.link.label} &rarr;
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </div>

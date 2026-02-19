@@ -24,6 +24,7 @@ const config: Config = {
         },
         accent: {
           DEFAULT: "var(--accent)",
+          text: "var(--accent-text)", // New property
           hover: "var(--accent-hover)",
           subtle: "var(--accent-subtle)",
           glow: "var(--accent-glow)",
@@ -39,11 +40,14 @@ const config: Config = {
         serif: ["var(--font-fraunces)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
       },
+      fontSize: {
+        display: "var(--text-display)", // New property
+      },
       maxWidth: {
-        "content-full": "1280px",
-        "content-cards": "1080px",
-        "content-text": "680px",
-        "content-form": "560px",
+        "content-full": "1440px", // Wider
+        "content-cards": "1200px",
+        "content-text": "720px",
+        "content-form": "600px",
       },
     },
   },

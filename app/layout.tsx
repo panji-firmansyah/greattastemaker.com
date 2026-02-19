@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
 import { MotionProvider } from "@/components/common/MotionProvider";
+import { SmoothScroll } from "@/components/common/SmoothScroll";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -118,14 +119,16 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <MotionProvider>
-          <Navbar />
-          <main id="main-content" className="pt-16 pb-16 lg:pb-0">
-            {children}
-          </main>
-          <Footer />
-          <MobileBottomBar />
-        </MotionProvider>
+        <SmoothScroll>
+          <MotionProvider>
+            <Navbar />
+            <main id="main-content" className="pt-16 pb-16 lg:pb-0">
+              {children}
+            </main>
+            <Footer />
+            <MobileBottomBar />
+          </MotionProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
